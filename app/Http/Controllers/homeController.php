@@ -9,14 +9,14 @@ use App\Models\User;
 use Auth as GlobalAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use PhpParser\Node\Expr\FuncCall;
 use Session;
 use Stripe;
 
 class homeController extends Controller
 {
    public function index(){
-      $product =product::paginate(4);
+      $product =product::paginate(12);
     return view('home.userpage',compact('product'));
    }
    
@@ -27,7 +27,9 @@ class homeController extends Controller
       if($usertype=='1'){
          return view('admin.home');
       }else{
-         return view('home.userpage');
+
+          $product =product::paginate(12);
+    return view('home.userpage',compact('product'));
       }
       
      }
@@ -199,7 +201,11 @@ class homeController extends Controller
 
 
 
-
+public function search_product(Request $request){
+   $text_search =$request->search;
+   $product = product::where('title','LIKE','%$text_search%')->paginate(5);
+   return view('home.search',compact('product')); 
+}
 
 
 

@@ -53,6 +53,9 @@ Route::get('/cash_order',[homeController::class,'cash_order']);
 Route::get('/strip/{totalPrice}',[homeController::class,'strip']);
 Route::post('/stripe',[homeController::class, 'stripePost'])->name('stripe.post');
 
+// search product
+// Route::get('/search_product',[homeController::class, 'search_product']);
+
 
 
 
