@@ -6,7 +6,7 @@ use App\Models\cart;
 use App\Models\order;
 use App\Models\product;
 use App\Models\User;
-use Auth as GlobalAuth;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\FuncCall;
@@ -201,16 +201,24 @@ class homeController extends Controller
 
 
 
-public function search_product(Request $request){
-   $text_search =$request->search;
-   $product = product::where('title','LIKE','%$text_search%')->paginate(5);
-   return view('home.search',compact('product')); 
+// public function search_product(Request $request){
+//    $text_search =$request->search;
+//    $product = product::where('title','LIKE','%$text_search%')->paginate(5);
+//    return view('home.product',compact('product') ); 
+// }
+
+
+
+
+// all product
+
+public function all_product(){
+
+   $product =product::paginate(100);
+
+
+   return view('home.all_product',compact('product'));
 }
-
-
-
-
-
 
 
 

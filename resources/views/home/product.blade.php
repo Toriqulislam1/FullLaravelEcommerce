@@ -40,7 +40,7 @@
                      <div class="detail-box">
                         <h5>
                        
-                         {{ $products->title }}
+                         {{$products->title }}
                        
                         </h5>
                         @if($products->discunt_price!=null)
@@ -65,7 +65,7 @@
                {!!$product->withQueryString()->links('pagination::bootstrap-5')!!}
             </div>
             <div class="btn-box">
-               <a href="">
+               <a href="{{url('all_product')}}">
                View All products
                </a>
             </div>

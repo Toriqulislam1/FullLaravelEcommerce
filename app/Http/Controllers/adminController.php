@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\catagory;
+use App\Models\logo;
 use App\Models\product;
 use Illuminate\Http\Request;
 use PDF;
@@ -10,6 +11,60 @@ use PDF;
 
 class adminController extends Controller
 {
+
+
+ //logo
+ 
+   public function logo(Request $request){
+
+      $data = logo::all();
+
+   
+      return view('admin.logo',compact('data'));
+   }
+   public function logoaction(Request $request){
+
+      $logo = new logo;
+
+      $image = $request->logo;
+      $imagename =time().'.'.$request->logo->getclientoriginalextension();
+      $image->move('logo',$imagename);
+      $logo->logo =$imagename;
+      $logo->save();
+      return redirect()->back();
+
+
+
+   }
+
+   
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function catagory_view(){
 
         $data = catagory::all();
@@ -134,6 +189,27 @@ public function search(Request $request){
      
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  }

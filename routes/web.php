@@ -18,6 +18,11 @@ use App\Http\Controllers\adminController;
     return view('welcome');
 });*/
 
+//logo
+
+Route::get('addlogo',[adminController::class,'logo']);
+Route::post('logoaction',[adminController::class,'logoaction']);
+
 Route::get('/',[homeController::class,'index']);
 
 Route::middleware([
@@ -55,11 +60,9 @@ Route::post('/stripe',[homeController::class, 'stripePost'])->name('stripe.post'
 
 // search product
 // Route::get('/search_product',[homeController::class, 'search_product']);
+// all product 
 
-
-
-
-
+Route::get('/all_product',[homeController::class, 'all_product']);
 
 
 
