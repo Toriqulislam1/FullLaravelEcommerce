@@ -22,6 +22,7 @@ class adminController extends Controller
    
       return view('admin.logo',compact('data'));
    }
+   //insert logo
    public function logoaction(Request $request){
 
       $logo = new logo;
@@ -31,8 +32,31 @@ class adminController extends Controller
       $image->move('logo',$imagename);
       $logo->logo =$imagename;
       $logo->save();
+
       return redirect()->back();
 
+
+   }
+
+//delete logo
+ public function delete_logo($id)
+{
+
+  $delete = logo::find($id);
+  $delete->delete();
+
+
+
+  return redirect()->back();
+}
+
+
+   //status on of
+   public function status_on_of($id){
+    
+      return "hellow";
+        
+      
 
 
    }

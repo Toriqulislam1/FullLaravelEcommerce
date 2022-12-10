@@ -93,11 +93,11 @@
                                     <td class="p-3"> <img width="50px" src="logo/{{$data->logo}}" alt=""></td>
                                     <td class="p-3">
                                         
-                                 
-                                  {{$data->status==1?'active':'deactive'}}  
+                                 <a class="btn btn-primary" href="{{url('status_on_of',$data->id)}}"></a>
+                                    
                       
                                     </td>
-                                    <td class="p-3">Delete</td>
+                                    <td class="p-3"><a href="{{Route('delete_logo', $data->id)}}">Delete</a> </td>
                                 </tr>
                                 @endforeach
                                </table>

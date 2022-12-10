@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\roleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
 /*
@@ -20,8 +21,14 @@ use App\Http\Controllers\adminController;
 
 //logo
 
-Route::get('addlogo',[adminController::class,'logo']);
-Route::post('logoaction',[adminController::class,'logoaction']);
+    Route::get('addlogo',[adminController::class,'logo']);
+
+    Route::post('logoaction',[adminController::class,'logoaction']);
+    //delete logo
+    Route::get('delete_logo/{id}',[adminController::class,'delete_logo'])->name('delete_logo');
+
+    //status on of
+    Route::get('status_on_of{id}',[adminController::class,'status_on_of']);
 
 Route::get('/',[homeController::class,'index']);
 
@@ -60,9 +67,19 @@ Route::post('/stripe',[homeController::class, 'stripePost'])->name('stripe.post'
 
 // search product
 // Route::get('/search_product',[homeController::class, 'search_product']);
-// all product 
+// all product
 
 Route::get('/all_product',[homeController::class, 'all_product']);
+
+
+
+// role management
+
+Route::get('/role',[roleController::class, 'role'])->name('role');
+Route::post('add/permission',[roleController::class, 'add_permission'])->name('add_permission');
+Route::post('role/store',[roleController::class, 'role_store'])->name('role_store');
+Route::post('role/assign',[roleController::class, 'role_assign'])->name('role_assign');
+
 
 
 

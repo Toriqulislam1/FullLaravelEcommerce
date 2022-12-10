@@ -58,11 +58,11 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('role') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Role management</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -77,7 +77,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('add_product')}} ">Add product</a></li>
                 <li class="nav-item"> <a class="nav-link" href=" {{url('show_product')}}"> Show product</a></li>
-                
+
               </ul>
             </div>
           </li>
@@ -97,6 +97,6 @@
               <span class="menu-title">Logo</span>
             </a>
           </li>
-          
+
         </ul>
       </nav>
